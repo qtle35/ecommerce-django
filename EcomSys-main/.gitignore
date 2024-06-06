@@ -2,3 +2,4 @@
 templates/node_modules
 product/images
 venv
+postgres_data
