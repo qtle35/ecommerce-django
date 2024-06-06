@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-comSys</title>
+    <link rel="shortcut icon" type="image/x-icon" href="media/favicon/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="static/css/app.css">
+    <script src="static/js/app.js"></script>
+</head>
+<body>
+<nav class="bg-gray-900 p-4 shadow-lg fixed w-full z-20 top-0 start-0">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="relative">
+            <span class="text-white text-2xl" id="username">Hello, Username</span>
+            <div id="dropdown-menu"
+                 class="hidden absolute top-full left-0 bg-white shadow-md py-2 w-48 rounded-md">
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100" onclick="logout()"><i
+                        class="fa-solid fa-right-from-bracket"></i></a>
+            </div>
+        </div>
+        <div class="flex items-center">
+            <div class="flex items-center ml-4">
+                <input id="home-searchbar" type="text" placeholder="Search..."
+                       class="px-4 py-2 bg-gray-800 text-white rounded-l-md focus:outline-none">
+                <button type="submit" class="px-4 py-2 bg-gray-700 text-white rounded-r-md" onclick="handleSearch()"><i
+                        class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="flex items-center">
+                <input type="file" id="image-input" accept="image/*" style="display:none;">
+                <button class="ml-4 px-4 py-2 bg-gray-700 text-white rounded-md" onclick="handleSearchByImage()"><i
+                        class="fa-solid fa-image"></i></button>
+            </div>
+            <div class="flex items-center">
+                <button class="ml-4 px-4 py-2 bg-gray-700 text-white rounded-md" onclick="handleSearchByVoice()">
+                    <i class="fa-solid fa-microphone"></i>
+                </button>
+            </div>
+            <a href="home.html" class="text-yellow-500 px-4 py-2 text-2xl"><i class="fa-solid fa-house"></i></a>
+            <a href="shipment.html" class="text-white px-4 py-2 text-2xl"><i
+                    class="fa-solid fa-clipboard-check"></i></a>
+            <a href="cart.html" class="text-white px-4 py-2 text-2xl"><i class="fa-solid fa-cart-shopping"></i></a>
+        </div>
+    </div>
+</nav>
+
+<div class="container mx-auto w-4/5 p-20 bg-slate-100">
+    <h1 class="text-5xl font-semibold mb-8 mt-4 text-center text-red-600">Welcome to Our Store</h1>
+    <section id="books" class="product-section mb-16 border-b-2 border-gray-200 pb-8">
+        <span class="flex justify-between items-center">
+            <h2 class="text-2xl font-semibold mb-4">Books</h2>
+            <a href="products.html" class="text-blue-500 text-xl font-semibold" data-type="books">View all</a>
+        </span>
+        <div id="books-list" class="product-list grid grid-cols-4 gap-8"></div>
+    </section>
+
+    <section id="mobiles" class="product-section mb-16 border-b-2 border-gray-200 pb-8">
+        <span class="flex justify-between items-center">
+            <h2 class="text-2xl font-semibold mb-4">Mobiles</h2>
+            <a href="products.html" class="text-blue-500 text-xl font-semibold" data-type="mobiles">View all</a>
+        </span>
+        <div id="mobiles-list" class="product-list grid grid-cols-4 gap-8"></div>
+    </section>
+
+    <section id="clothes" class="product-section mb-16 border-b-2 border-gray-200 pb-8">
+        <span class="flex justify-between items-center">
+            <h2 class="text-2xl font-semibold mb-4">Clothes</h2>
+            <a href="products.html" class="text-blue-500 text-xl font-semibold" data-type="clothes">View all</a>
+        </span>
+        <div id="clothes-list" class="product-list grid grid-cols-4 gap-8"></div>
+    </section>
+</div>
+<div id="popup"
+     class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 shadow-md rounded-md hidden">
+    <p id="popup-text" class="text-lg font-semibold mb-4"></p>
+    <button id="close-button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Close
+    </button>
+</div>
+
+<div id="overlay" class="fixed top-0 left-0 w-full h-full bg-black opacity-50 hidden" onclick="closePopup()"></div>
+<script src="static/js/home.js"></script>
+</body>
+</html>
